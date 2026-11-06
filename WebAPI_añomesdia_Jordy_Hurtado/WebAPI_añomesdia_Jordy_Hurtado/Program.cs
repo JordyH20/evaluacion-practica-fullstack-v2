@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DbConexion>(options =>
 
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<CursoService>();
 
 builder.Services.AddScoped<IPasswordHasher<User>,
     PasswordHasher<User>>();

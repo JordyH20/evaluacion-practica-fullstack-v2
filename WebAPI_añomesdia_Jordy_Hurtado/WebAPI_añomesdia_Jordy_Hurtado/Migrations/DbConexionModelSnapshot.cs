@@ -21,6 +21,24 @@ namespace WebAPI_añomesdia_Jordy_Hurtado.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WebAPI_añomesdia_Jordy_Hurtado.Models.Curso", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("InstructorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InstructorId");
+
+                    b.ToTable("Cursos");
+                });
+
             modelBuilder.Entity("WebAPI_añomesdia_Jordy_Hurtado.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -44,6 +62,22 @@ namespace WebAPI_añomesdia_Jordy_Hurtado.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("WebAPI_añomesdia_Jordy_Hurtado.Models.Curso", b =>
+                {
+                    b.HasOne("WebAPI_añomesdia_Jordy_Hurtado.Models.User", "Instructor")
+                        .WithMany("Cursos")
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Instructor");
+                });
+
+            modelBuilder.Entity("WebAPI_añomesdia_Jordy_Hurtado.Models.User", b =>
+                {
+                    b.Navigation("Cursos");
                 });
 #pragma warning restore 612, 618
         }

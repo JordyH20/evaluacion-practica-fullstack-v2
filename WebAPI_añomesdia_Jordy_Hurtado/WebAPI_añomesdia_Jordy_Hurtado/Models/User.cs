@@ -7,5 +7,7 @@
         public string? Correo { get; set; }
         public string? PasswordHash { get; set; }
         public RolUsuario Rol { get; set; } = new RolUsuario();
+
+        public ICollection<Curso> Cursos { get; set; } = [];
     }
 }

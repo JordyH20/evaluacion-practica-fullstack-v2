@@ -12,5 +12,10 @@ namespace WebAPI_añomesdia_Jordy_Hurtado.Data
         }
         public DbSet<User> Users { get; set; } = null!;
 
+        public DbSet<Curso> Cursos { get; set; } = null!;
+
+
+          
+
     }
 }
