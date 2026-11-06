@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Code
+.vscode/
+
+# Archivos temporales
+*.user
+*.suo
+*.cache
+
+# Configuración sensible
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+
+# Logs
+*.log
